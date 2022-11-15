@@ -12,7 +12,7 @@ import { CreateStudentDto, UpdateStudentDto } from './dto/create-student.dto';
 
 @Controller('student')
 export class StudentController {
-  constructor(private readonly studentService: StudentService) {}
+  constructor(private readonly studentService: StudentService) {}   //dependancy injection
 
   @Get()
   findAll() {
@@ -29,10 +29,10 @@ export class StudentController {
     return this.studentService.create(body);
   }
 
-    @Patch(':id')
-    update(@Param('id') id:string, @Body() updatedBody : UpdateStudentDto){
+  @Patch(':id')
+  update(@Param('id') id:string, @Body() updatedBody : UpdateStudentDto){
       return this.studentService.update(parseInt(id),updatedBody)
-    }
+  }
 
   @Delete('/:id')
   removeStudent(@Param('id') id: string) {

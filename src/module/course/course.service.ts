@@ -6,6 +6,8 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CourseService {
+
+// intract with database..constructor is called automatically first time.
     constructor(
         @InjectRepository(Course) private courseRepo: Repository<Course>,
       ) {}
@@ -20,9 +22,10 @@ export class CourseService {
         return this.courseRepo.findOneBy({ id });
       }
     
-      create(registerModel: any) {
-        console.log(registerModel)
+      async create(registerModel: any) {
+        // console.log(registerModel)
         const course = this.courseRepo.create(registerModel)
+
         return this.courseRepo.save(course)
       }
     

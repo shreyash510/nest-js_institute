@@ -1,7 +1,10 @@
 export class CreateStudentDto {
-    name : string;
+    studentname : string;
     age : number;
     email : string;
+    coursename : string;
+    fees:number;
+    duration:number;
 }
 
 export class UpdateStudentDto {
